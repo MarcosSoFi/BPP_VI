@@ -109,3 +109,25 @@ print("Total Savings  = ", savings_year,"€")
 
 
 
+# 	[3] Graph - MatplotLib
+#	----------------------------------------------------------------
+def plot_1(savings_m_t,expenses_m_t):
+	savings  = plt.plot(savings_m_t)
+	expenses = plt.plot([abs(i) for i in expenses_m_t])
+
+	months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+	plt.xticks(list(range(12)), months)
+
+	plt.grid(axis= "x", c='#C0C0C0', ls=(0, (10, 10)), lw=0.5)
+	plt.grid(axis= "y", c='#C0C0C0', ls=(0, (10, 10)), lw=0.5)
+
+	plt.xlabel("Month", weight="bold")
+	plt.ylabel("Euros €", weight="bold")
+
+	plt.legend(["Savings", "Expenses"], loc = 1)
+	plt.title("Savings / Expenses", weight="bold")															
+
+	plt.show()
+
+plot_1(savings_m_t,expenses_m_t)
+
