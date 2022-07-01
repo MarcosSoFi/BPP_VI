@@ -61,5 +61,51 @@ second_check = checkdata(first_check[1])
 print("New Errors", second_check[0]), print("\n")
 
 
+#   [2] Results
+#	----------------------------------------------------------------
+expenses_m 	= []
+savings_m   = []
+
+for i in second_check[1]:
+	expenses = []
+	expenses_m.append(expenses)
+	savings	 = []
+	savings_m.append(savings)
+	for j in i:
+		if j > 0:
+			savings.append(j)
+		else:
+			expenses.append(j)
+
+expenses_m_t = [sum(i) for i in expenses_m]
+savings_m_t  = [sum(i) for i in savings_m]
+
+
+# 	2.1 Highest Expending/Saving Month
+#	----------------------------------------------------------------
+expending_Month = months[expenses_m_t.index(max(expenses_m_t))]
+saving_Month    = months[savings_m_t.index(max(savings_m_t))]
+
+print("Highest Expending Month - ", expending_Month)
+print("Highest Saving Month    - ", saving_Month)
+
+
+# 	2.2 Monthly Means
+#	----------------------------------------------------------------
+expenses_mean = sum(expenses_m_t) / len(months)
+savings_mean  = sum(savings_m_t) / len(months)
+
+print("Expenses Mean = ", round(expenses_mean,2),"€")
+print("Savings Mean  = ", round(savings_mean,2),"€")
+
+
+# 	2.3 Totals
+#	----------------------------------------------------------------
+expenses_year = sum(expenses_m_t)
+savings_year  = sum(savings_m_t)
+
+print("Total Expenses = ", expenses_year,"€")
+print("Total Savings  = ", savings_year,"€")
+
 
 
